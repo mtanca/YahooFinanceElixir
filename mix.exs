@@ -3,19 +3,25 @@ defmodule YahooFinanceElixir.MixProject do
 
   def project do
     [
-      app: :yahoo_finance,
-      version: "0.0.1",
+      app: :yahoo_finance_elixir,
+      version: "0.1.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      source_url: "https://github.com/mtanca/YahooFinanceElixir",
+      description: description(),
+      package: package(),
+      name: "Yahoo-Finance Elixir"
     ]
   end
 
   # Run "mix help compile.app" to learn about applications.
   def application do
-    [
-      extra_applications: [:logger]
-    ]
+    []
+  end
+
+  defp description do
+    "A simple elixir wrapper around Yahoo-Finance."
   end
 
   # Run "mix help deps" to learn about dependencies.
@@ -23,9 +29,15 @@ defmodule YahooFinanceElixir.MixProject do
     [
       {:httpoison, "~> 1.0"},
       {:poison, "~> 2.0"},
-      {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false}
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
+      {:ex_doc, ">= 0.0.0", only: :dev}
+    ]
+  end
+
+  defp package() do
+    [
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/mtanca/YahooFinanceElixir"},
+      maintainers: ["Mark T"]
     ]
   end
 end

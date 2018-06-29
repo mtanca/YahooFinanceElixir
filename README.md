@@ -1,8 +1,8 @@
-# YahooFinanceElixir
+# Yahoo-Finance Elixir
 
-A simple elixir wrapper around Yahoo-Finance. Get historical and real-time stock information easily, efficiently, and free =).
+A simple elixir wrapper around Yahoo-Finance. Get historical and real-time information easily, efficiently, and free =).
 
-## Installation (Todo)
+## Installation
 
 The package can be installed by adding `yahoo_finance_elixir`
 to your list of dependencies in `mix.exs`:
