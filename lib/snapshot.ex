@@ -1,6 +1,6 @@
 defmodule YahooFinance.Snapshot do
   @moduledoc """
-    Contains the functions needed to pull historical stock data.
+    Contains the functions needed to pull snapshot stock data.
   """
   import Utils
 
