@@ -1,4 +1,7 @@
 defmodule YahooFinance.Snapshot do
+  @moduledoc """
+    Contains the functions needed to pull snapshot stock data.
+  """
   import Utils
 
   def run("", _), do:
