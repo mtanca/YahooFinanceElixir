@@ -4,7 +4,7 @@ defmodule YahooFinanceElixir.MixProject do
   def project do
     [
       app: :yahoo_finance_elixir,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -21,7 +21,7 @@ defmodule YahooFinanceElixir.MixProject do
   end
 
   defp description do
-    "A simple elixir wrapper around Yahoo-Finance."
+    "A simple elixir wrapper around Yahoo-Finance for historical and real-time stock quotes & data."
   end
 
   # Run "mix help deps" to learn about dependencies.
