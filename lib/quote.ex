@@ -1,6 +1,9 @@
 defmodule YahooFinance.Quote do
+  @moduledoc """
+    Contains the functions needed to pull quote data.
+  """
   import Utils
-
+  
   def get_full_quote(""), do:
     {:error, "Cannot provide empty string as argument"}
 
