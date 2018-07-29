@@ -10,7 +10,7 @@ to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:yahoo_finance_elixir, "~> 0.1.0"}
+    {:yahoo_finance_elixir, "~> 0.1.2"}
   ]
 end
 ```
