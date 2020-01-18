@@ -29,7 +29,8 @@ defmodule YahooFinanceElixir.MixProject do
     [
       {:httpoison, "~> 1.0"},
       {:poison, "~> 2.0"},
-      {:ex_doc, ">= 0.0.0", only: :dev}
+      {:ex_doc, ">= 0.0.0", only: :dev},
+      {:httpoison_retry, "~> 1.0.0"}
     ]
   end
 
