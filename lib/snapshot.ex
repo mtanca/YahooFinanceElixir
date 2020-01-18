@@ -4,25 +4,24 @@ defmodule YahooFinance.Snapshot do
   """
   import Utils
 
-  def run("", _), do:
-    {:error, "Cannot provide empty string as argument"}
+  def run("", _), do: {:error, "Cannot provide empty string as argument"}
 
-  def run(symbol, _module_args) when not is_string_like(symbol), do:
-    {:error, "Symbol argument must be given as string"}
+  def run(symbol, _module_args) when not is_string_like(symbol),
+    do: {:error, "Symbol argument must be given as string"}
 
-  def run(_symbol, []), do:
-    {:error, "Module list cannot be empty"}
+  def run(_symbol, []), do: {:error, "Module list cannot be empty"}
 
-  def run(_symbol, module_args) when not is_list(module_args), do:
-    {:error, "Modules must be given as a list"}
+  def run(_symbol, module_args) when not is_list(module_args),
+    do: {:error, "Modules must be given as a list"}
 
   def run(symbol, module_args) do
     case valid_modules?(module_args) do
       false ->
         {:error, "One or more of modules entered is invalid"}
+
       true ->
         module_args
-        |> Enum.map(fn(arg) -> Atom.to_string(arg) end)
+        |> Enum.map(fn arg -> Atom.to_string(arg) end)
         |> build_module_query
         |> request_snapshot(symbol)
         |> handle_response(symbol)
@@ -45,7 +44,9 @@ defmodule YahooFinance.Snapshot do
   end
 
   defp request_snapshot(args, symbol) do
-    HTTPoison.get! "https://query1.finance.yahoo.com/v10/finance/quoteSummary/#{symbol}?modules=#{args}"
+    HTTPoison.get!(
+      "https://query1.finance.yahoo.com/v10/finance/quoteSummary/#{symbol}?modules=#{args}"
+    )
   end
 
   defp handle_response(response, symbol) do
@@ -57,7 +58,8 @@ defmodule YahooFinance.Snapshot do
 
   defp handle_error({_, %{"quoteSummary" => info}}), do: {:error, info["error"]["description"]}
 
-  defp handle_error(_), do: {:error, "Encountered an error unhandled by this API. If reproducible, report as bug"}
+  defp handle_error(_),
+    do: {:error, "Encountered an error unhandled by this API. If reproducible, report as bug"}
 
   defp get_modules do
     [
