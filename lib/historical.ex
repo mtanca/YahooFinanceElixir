@@ -47,7 +47,7 @@ defmodule YahooFinance.Historical do
 
   defp extract_cookie(response_headers) do
     [{_, cookie}] = Enum.filter(response_headers, fn
-       {"set-cookie", _} -> true
+       {"Set-Cookie", _} -> true
        _ -> false
     end)
 

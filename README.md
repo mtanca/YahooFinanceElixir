@@ -10,7 +10,7 @@ to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:yahoo_finance_elixir, "~> 0.1.2"}
+    {:yahoo_finance_elixir, "~> 0.1.3"}
   ]
 end
 ```
@@ -20,6 +20,7 @@ end
 Yahoo-Finance has terminated its service on the well used EOD data download without warning some time ago. The historical/3 function provides a work around for getting historical/EOD data.
 
 ### Historical Example
+
 ```elixir
                         Symbol     Start          End
 YahooFinance.historical("AAPL", "2018-05-01", "2018-05-04")
@@ -40,6 +41,7 @@ Output:
 Provides data used in fundamental analysis.
 
 Module arguments:
+
 ```elixir
 * :assetProfile
 * :incomeStatementHistory
@@ -68,7 +70,9 @@ Module arguments:
 * :indexTrend
 * :sectorTrend
 ```
+
 ### Snapshot Example
+
 ```elixir
                       Symbol                Modules
 YahooFinance.snapshot("AAPL", [:recommendationTrend, :indexTrend])
@@ -100,11 +104,13 @@ Output:
 Offers easy to use functions for getting a variety of real-time stock quotes.
 
 #### Available quote functions do date:
-* full_quote/1
-* simple_quote/1
-* custom_quote/2
+
+- full_quote/1
+- simple_quote/1
+- custom_quote/2
 
 Custom quote modules:
+
 ```elixir
 * :ask
 * :askSize
@@ -174,6 +180,7 @@ Custom quote modules:
 ```
 
 ### Quote Example
+
 ```elixir
                          Symbol                   Modules
 YahooFinance.custom_quote("FB", [:bid, :ask, :quoteType, :twoHundredDayAverage])
