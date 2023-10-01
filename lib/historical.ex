@@ -45,13 +45,14 @@ defmodule YahooFinance.Historical do
   end
 
   defp extract_cookie(response_headers) do
-    [{_, cookie}] =
-      Enum.filter(response_headers, fn
-        {"Set-Cookie", _} -> true
-        _ -> false
-      end)
-
-    cookie
+    Enum.filter(response_headers, fn
+      {"Set-Cookie", _} -> true
+      _ -> false
+    end)
+    |> (fn
+      [{_, cookie}] -> cookie
+      _ -> nil
+    end).()
   end
 
   # The crumb is the token tied to the cookie for the download request.
